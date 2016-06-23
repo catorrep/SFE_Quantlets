@@ -28,10 +28,10 @@ DAX.minDay = minDayDAX;
 monthlyDAX = DAX(DAX.Day==DAX.minDay,:);
 monthlyDAX = monthlyDAX(2:end,:);
 
-%% monthly returns
+%% DAX monthly log-returns
 returns = log(monthlyDAX.DAX30(2:end)) - log(monthlyDAX.DAX30(1:(end-1)));
 
-%% summary statistics of the monthly returns
+%% summary statistics of the monthly log-returns
 summary.Minimum           = min(returns);
 summary.Maximum           = max(returns);
 summary.Mean              = mean(returns);
@@ -42,12 +42,19 @@ summary.Skewness          = skewness(returns);
 summary.Kurtosis          = kurtosis(returns);
 summary
 
-%% plot of the monthly DAX returns
+%% Title of the plot
+Title = ['DAX monthly log-returns '...
+          num2str(monthlyDAX.Month(2), '%02i') '.'...
+          num2str(monthlyDAX.Year(2), '%02i') ' - '...
+          num2str(monthlyDAX.Month(end), '%02i') '.'...
+          num2str(monthlyDAX.Year(end), '%02i')];
+      
+%% plot of the DAX monthly log-returns
 set(gcf,'color','w');
 plot(monthlyDAX.Date(2:end), returns, 'Color', 'b')
 xlim = get(gca,'xlim');  %Get x range 
 hold on
 plot([xlim(1) xlim(2)],[0 0], 'Color', [0 0.5 0])
-title('Monthly DAX Returns 2004.07-2014.05')
+title(Title)
 xlabel('Date') % x-axis label
-ylabel('DAX Returns') % y-axis label
+ylabel('DAX log-returns') % y-axis label

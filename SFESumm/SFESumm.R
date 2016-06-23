@@ -4,7 +4,7 @@ graphics.off()
 
 # set working directory
 # setwd("C:/...")
-setwd("D:/Trabajo HU")
+setwd("Z:/SFE_Quantlets/SFESumm")
 
 # install and load packages
 libraries = c("data.table", "dplyr", "moments")
@@ -33,10 +33,10 @@ monthlyDAX     = select(monthlyDAX, DAX.30, Date, monthYear)
 # number of monthly observations
 obs = nrow(monthlyDAX)
 
-# monthly returns
+# monthly log-returns
 returns = log(monthlyDAX$DAX.30[2:obs]) - log(monthlyDAX$DAX.30[1:(obs-1)])
 
-# summary statistics of the monthly returns
+# summary statistics of the monthly log-returns
 annVol          = sd(returns)*sqrt(12)
 (returnsSummary = c(Minimum           = min(returns), 
                     Maximum           = max(returns), 
@@ -51,15 +51,15 @@ annVol          = sd(returns)*sqrt(12)
 Start = as.numeric(unlist(strsplit(monthlyDAX$monthYear[2], split = "-")))
 End   = as.numeric(unlist(strsplit(monthlyDAX$monthYear[obs], split = "-")))
 
-# save monthly returns as a time series
+# save DAX monthly log-returns as a time series
 ts_returns = ts(returns, start=Start, end=End, frequency=12) 
 
 # title of the plot
 forTitle   = format(monthlyDAX$Date, "%Y.%m")
-Title = paste("Monthly DAX Returns ", forTitle[2], " - ", forTitle[obs], sep = "")
+Title = paste("DAX monthly log-returns ", forTitle[2], " - ", forTitle[obs], sep = "")
 
-# plot of the monthly DAX returns
+# plot of the DAX monthly log-returns
 plot(ts_returns, main = Title, t = "l", col = "blue",
-     xlab = "Date", ylab = "DAX Returns", lwd = 1.5)
+     xlab = "Date", ylab = "DAX log-returns", lwd = 1.5)
 abline(h = 0, col = "darkgreen", lwd = 1.5)
 
