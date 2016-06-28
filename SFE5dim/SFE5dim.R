@@ -4,7 +4,7 @@ graphics.off()
 
 # set working directory
 # setwd("C:/...")
-setwd("Z:/SFE5dim")
+setwd("D:/Trabajo HU/SFE5dim")
 
 # load libraries
 # install and load packages
@@ -29,20 +29,16 @@ for (i in seq_len(ncol(dataset))) {
   X[,i] = log(dataset[-1,i]/dataset[-obs,i])
 }
 
-# the entries of this data frame will be replaced by the epsilon values from the fitted Garch model
-eps = X
+garchModel = lapply(X, 
+                    function(x){
+                      garchFit(~garch(1, 1), data = x, trace = F)
+                    })
 
-for (i in seq_len(ncol(dataset))) {
-  fit      = garchFit(~garch(1, 1), data = X[, i], trace = F)
-  eps[, i] = fit@residuals / fit@sigma.t
-}
+eps = lapply(garchModel, 
+             function(x){
+               x@residuals/x@sigma.t
+             })
 
-f.eps = eps
-
-for(i in seq_len(ncol(dataset))) {
-  # making margins uniform, based on Ranks
-  f.eps[,i] = rank(eps[,i]) / obs
-}
 
 panel.cor <- function(x, y, pch)
 {
