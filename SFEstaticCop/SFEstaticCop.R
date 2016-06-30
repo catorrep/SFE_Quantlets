@@ -17,16 +17,11 @@ lapply(libraries, library, quietly = TRUE, character.only = TRUE)
 dataset = fread("2004-2014_dax_ftse.csv", select =  c("DEUTSCHE TELEKOM", "VOLKSWAGEN"))
 dataset = as.data.frame(dataset)
 
-# the entries of this data frame will be replaced by the log-returns
-X = dataset[-1,]
-
-# number of observations
-obs = nrow(dataset)
-
 # log-returns
-for (i in seq_len(ncol(dataset))) {
-  X[,i] = log(dataset[-1, i] / dataset[-obs, i])
-}
+X = lapply(dataset, 
+           function(x){
+             diff(log(x))
+           })
 
 garchModel = lapply(X, 
                     function(x){

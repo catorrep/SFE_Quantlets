@@ -30,11 +30,8 @@ row.names(DAX) = DAX$Date
 monthlyDAX     = DAX[firstDay[-1], ]
 monthlyDAX     = select(monthlyDAX, DAX.30, Date, monthYear)
 
-# number of monthly observations
-obs = nrow(monthlyDAX)
-
 # monthly log-returns
-returns = log(monthlyDAX$DAX.30[2:obs]) - log(monthlyDAX$DAX.30[1:(obs-1)])
+returns = diff(log(monthlyDAX$DAX.30))
 
 # summary statistics of the monthly log-returns
 annVol          = sd(returns)*sqrt(12)
@@ -49,17 +46,16 @@ annVol          = sd(returns)*sqrt(12)
 
 # start and end of the time series
 Start = as.numeric(unlist(strsplit(monthlyDAX$monthYear[2], split = "-")))
-End   = as.numeric(unlist(strsplit(monthlyDAX$monthYear[obs], split = "-")))
+End   = as.numeric(unlist(strsplit(monthlyDAX$monthYear[nrow(monthlyDAX)], split = "-")))
 
 # save DAX monthly log-returns as a time series
 ts_returns = ts(returns, start=Start, end=End, frequency=12) 
 
 # title of the plot
 forTitle   = format(monthlyDAX$Date, "%Y.%m")
-Title = paste("DAX monthly log-returns ", forTitle[2], " - ", forTitle[obs], sep = "")
+Title = paste("DAX monthly log-returns ", forTitle[2], " - ", forTitle[nrow(monthlyDAX)], sep = "")
 
 # plot of the DAX monthly log-returns
-plot(ts_returns, main = Title, t = "l", col = "blue",
+plot(ts_returns, main = Title, t = "l", col = "blue3",
      xlab = "Date", ylab = "DAX log-returns", lwd = 1.5)
 abline(h = 0, col = "darkgreen", lwd = 1.5)
-

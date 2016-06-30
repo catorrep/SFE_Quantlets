@@ -17,16 +17,13 @@ lapply(libraries, library, quietly = TRUE, character.only = TRUE)
 dataset = fread("2004-2014_dax_ftse.csv", select =  c("DEUTSCHE TELEKOM", "VOLKSWAGEN"))
 dataset = as.data.frame(dataset)
 
-# the entries of this data frame will be replaced by the log-returns
-X = dataset[-1,]
-
-# number of observations
-obs = nrow(dataset)
-
 # log-returns
-for (i in seq_len(ncol(dataset))) {
-  X[,i] = log(dataset[-1, i] / dataset[-obs, i])
-}
+X = lapply(dataset, 
+           function(x){
+             diff(log(x))
+           })
+
+X = as.data.frame(X)
 
 r.window   = 250        # size of moving window
 T.obs      = nrow(X)
@@ -90,13 +87,13 @@ axis(1, date.ind, date.labels)
 axis(2, y.labels, y.labels)
 
 par(mai = c(0.6, 0.7, 0.2, 0.1))
-plot(gumbel.tau2theta(params.cop), type = "l", lwd = 3, xlab = "", ylab = expression(hat(theta)), col = "blue", axes = F, frame = T)
+plot(gumbel.tau2theta(params.cop), type = "l", lwd = 3, xlab = "", ylab = expression(hat(theta)), col = "blue3", axes = F, frame = T)
 axis(1, date.ind, date.labels)
 y.labels = c(round(seq(min(gumbel.tau2theta(params.cop)), max(gumbel.tau2theta(params.cop)), length = 5) * 100) / 100, 0 )
 axis(2, y.labels, y.labels)
 
 par(mai = c(0.6, 0.7, 0.2, 0.1))
-plot(clayton.tau2theta(params.cop), type = "l", lwd = 3, xlab = "Date", ylab = "", col = "red", axes = F, frame = T, cex = 3.5)
+plot(clayton.tau2theta(params.cop), type = "l", lwd = 3, xlab = "Date", ylab = "", col = "red3", axes = F, frame = T, cex = 3.5)
 y.labels = c(round(seq(min(clayton.tau2theta(params.cop)), max(clayton.tau2theta(params.cop)), length = 5) * 100) / 100, 0 )
 axis(2, y.labels, y.labels)
 axis(1, date.ind, date.labels)

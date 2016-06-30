@@ -14,7 +14,7 @@ Author: Ostap Okhrin, Piedad Castro
 
 Submitted: Tue, June 28 2016 by Piedad Castro
 
-Input: 'The datafile contains daily price data from 07.05.1997 to 07.05.2014 for 
+Input: 'The datafile contains daily price data from 07.05.2004 to 07.05.2014 for 
 selected companies which are part of DAX30 and FTSE100 as well as the 
 corresponding index data. This code makes use of the daily prices for the companies
 Bayer, Deutsche Telekom and Volkswagen. It uses the date variable as well.'
