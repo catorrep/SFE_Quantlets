@@ -5,7 +5,7 @@ Published in: Statistics of Financial Markets
 Description: 'plots the time series from estimated dependence parameter for
               the copula families Gaussian, Gumbel and Clayton. The dependence 
               parameter is estimated using the IFM method. The empirical 
-              residuals are calculated using moving window of size 250''
+              residuals are calculated using moving window of size 250'
 
 Keywords: garch, copula, plot, normal, gumbel, clayton, Kendalls Tau, dynamic
 
@@ -13,7 +13,7 @@ See also: BCS_ClaytonMC, SFEstaticCop, SFEdynCop3dim
 
 Author: Ostap Okhrin, Piedad Castro
 
-Submitted: Fri, June 28 2016 by Piedad Castro
+Submitted: Tue, June 28 2016 by Piedad Castro
 
 Input: 'The datafile contains daily price data from 07.05.1997 to 07.05.2014 for 
 selected companies which are part of DAX30 and FTSE100 as well as the 

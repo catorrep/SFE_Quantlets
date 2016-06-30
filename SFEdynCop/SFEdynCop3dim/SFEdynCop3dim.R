@@ -25,7 +25,7 @@ obs = nrow(dataset)
 
 # log-returns
 for (i in seq_len(ncol(dataset))) {
-  X[,i] = log(dataset[-1,i]/dataset[-obs,i])
+  X[,i] = log(dataset[-1, i] / dataset[-obs, i])
 }
 
 
