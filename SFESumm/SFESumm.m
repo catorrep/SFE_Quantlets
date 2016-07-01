@@ -29,7 +29,7 @@ monthlyDAX = DAX(DAX.Day==DAX.minDay,:);
 monthlyDAX = monthlyDAX(2:end,:);
 
 %% DAX monthly log-returns
-returns = log(monthlyDAX.DAX30(2:end)) - log(monthlyDAX.DAX30(1:(end-1)));
+returns = diff(log(monthlyDAX.DAX30));
 
 %% summary statistics of the monthly log-returns
 summary.Minimum           = min(returns);
@@ -50,7 +50,7 @@ Title = ['DAX monthly log-returns '...
           num2str(monthlyDAX.Year(end), '%02i')];
       
 %% plot of the DAX monthly log-returns
-set(gcf,'color','w');
+set(gcf,'color','w')
 plot(monthlyDAX.Date(2:end), returns, 'Color', 'b')
 xlim = get(gca,'xlim');  %Get x range 
 hold on
