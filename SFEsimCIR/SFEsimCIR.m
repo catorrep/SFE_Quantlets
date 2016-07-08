@@ -19,7 +19,7 @@ X(1) = mu
 
 %% simulates a mean reverting square root process around mu
 for i = 1:Tobs
-    dW = randn(1) * sqrt(dt);
+    dW = randn * sqrt(dt);
     dX = alpha * (mu - X(i)) * dt + sigma * sqrt(abs(X(i))) * dW;
     X  = [X, X(i) + dW];
 end
