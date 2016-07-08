@@ -14,8 +14,8 @@ dt = 1/T.obs
 # initial value of X (X_0):
 X = mu
 
-# we set a seed to assure that this simmulation can be reproduced
-set.seed(123) 
+# set a seed if you want this simmulation to be reproducible
+# set.seed(123) 
 
 # simulates a mean reverting square root process around mu
 for (i in 1:T.obs) {

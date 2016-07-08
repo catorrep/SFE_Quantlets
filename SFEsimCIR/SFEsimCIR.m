@@ -14,8 +14,8 @@ dt = 1/Tobs;
 % initial value of X (X_0):
 X(1) = mu
 
-% we set a seed to assure that this simmulation can be reproduced
-rng(123); 
+% set a seed if you want this simmulation to be reproducible
+%rng(123); 
 
 %% simulates a mean reverting square root process around mu
 for i = 1:Tobs
