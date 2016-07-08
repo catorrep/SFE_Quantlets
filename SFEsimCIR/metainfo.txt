@@ -16,7 +16,7 @@ Author: Awdesch Melzer, Piedad Castro
 Submitted: Thu, July 07 2016 by Piedad Castro
 
 Input:
-- T.obs: number of steps
+- Tobs: number of steps
 - alpha: positive constant
 - mu: positive constant 
 - sigma: positive constant

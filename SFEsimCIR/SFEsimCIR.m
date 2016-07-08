@@ -27,8 +27,9 @@ end
 X = X(2:end);
 
 %% plot
+t = (1:Tobs)/Tobs;
 set(gcf,'color','w')
-plot(X, 'Color', 'blue', 'LineWidth', 2)
+plot(t, X, 'Color', 'blue', 'LineWidth', 2)
 title('Simulated CIR process')
 xlabel('t')
 ylabel('X_t')

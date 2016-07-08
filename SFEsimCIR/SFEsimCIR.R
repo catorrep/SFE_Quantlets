@@ -4,12 +4,12 @@ graphics.off()
 
 
 # set parameters for the simulation
-T.obs = 360
+Tobs = 360
 alpha = 5
 mu    = 1
 sigma = 0.2
 
-dt = 1/T.obs
+dt = 1/Tobs
 
 # initial value of X (X_0):
 X = mu
@@ -18,7 +18,7 @@ X = mu
 # set.seed(123) 
 
 # simulates a mean reverting square root process around mu
-for (i in 1:T.obs) {
+for (i in 1:Tobs) {
   dW = rnorm(1) * sqrt(dt)
   dX = alpha * (mu - X[i]) * dt + sigma * sqrt(abs(X[i])) * dW
   X  = c(X, X[i] + dX)
@@ -27,4 +27,5 @@ for (i in 1:T.obs) {
 X = X[-1]
 
 # plot
-plot(X, main = 'Simulated CIR process', xlab = 't', ylab = expression(X[t]), type = "l", col = "blue3", lwd = 2)
+t = (1:Tobs)/Tobs
+plot(t, X, main = 'Simulated CIR process', xlab = 't', ylab = expression(X[t]), type = "l", col = "blue3", lwd = 2)
