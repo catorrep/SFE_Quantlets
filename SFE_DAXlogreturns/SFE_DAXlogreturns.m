@@ -21,7 +21,6 @@ yLims  = [-yLimUp, yLimUp];
 date_X      = dataset{2:end, 'Date'};
 date_X_Year = year(date_X);
 where_put   = [true; (diff(date_X_Year) == 1)];
-date_X_Year(where_put) % to erase
 
 %% for the density we take the log-returns of the last four years available in the dataset 
 % i.e from 10.05.2010 to 10.05.2014
