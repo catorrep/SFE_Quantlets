@@ -2,9 +2,8 @@ Name of QuantLet: SFEexrate
 
 Published in: Statistics of Financial Markets
 
-Description: 'Produces two plots, one for the exchange rates EUR/USD from 07.05.2004 
-              to 07.05.2014 and one more for the respective daily returns from 10.05.2004 
-              to 07.05.2014.'
+Description: 'Produces two plots, one for the hourly exchange rates USD/EUR from 09.11.2010 
+              to 21.07.2016 and one more for the respective hourly returns'
 
 Keywords: exchange-rate, returns, plot, time-series, graphical representation
 
@@ -12,9 +11,9 @@ See also: SFEexratevol
 
 Author: N.N., Piedad Castro
 
-Submitted: Thu, July 14 2016 by Piedad Castro
+Submitted: Wed, July 27 2016 by Piedad Castro
 
 Datafile: 2004_2014_exRate_EURUSD.csv
 
-Input: 'The datafile contains the Euro (EUR) to US Dollar (USD) exchange rate 
-        from 07.05.2004 to 07.05.2014.'
+Input: 'The datafile contains the US Dollar (USD) to Euro (EUR) hourly exchange rate 
+        from 09.11.2010 to 21.07.2016.'
