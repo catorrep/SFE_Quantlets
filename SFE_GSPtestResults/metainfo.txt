@@ -1,0 +1,27 @@
+Name of QuantLet: SFE_GSPtestResults
+
+Published in: Statistics of Financial Markets
+
+Description: 'Estimates the long memory parameter for the absolute and squared 
+              log returns of the FTSE 100 and daily prices for Bayer, Siemens and 
+              Volkswagen. This is done for three different values of m, i.e. 
+              T/64, T/16, T/4'
+
+
+Keywords: long memory, whittle, function, estimation, Gaussian Semiparametric Estimator
+
+See also: SFEwhittle, SFEgsp, SFEgphTestResults
+
+Author: Awdesch Melzer, Piedad Castro
+
+Submitted: Thu, July 28 2016 by Piedad Castro
+
+Input: 'The datafile contains daily price data from 07.05.2004 to 07.05.2014 for 
+selected companies which are part of DAX30 and FTSE100 as well as the 
+corresponding index data. This code makes only use FTSE100 and of the daily 
+prices for Bayer, Siemens and Volkswagen.'
+
+Output: 'Two tables of size 3x4. The tables testAbs and testSqr contain the 
+         estimations of the long memory parameter for the absolute and squared 
+         log returns respectively.'
+

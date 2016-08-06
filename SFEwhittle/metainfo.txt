@@ -1,0 +1,18 @@
+Name of QuantLet: SFEwhittle
+
+Published in: Statistics of Financial Markets
+
+Description: 'Evaluates the objective function of the Gaussian Semiparametric Estimator for a
+              given long memory parameter (d), time series and highest frequency parameter (m).'
+
+Keywords: long memory, whittle, function, estimation, Gaussian Semiparametric Estimator
+
+See also: SFEgsp, SFE_GSPtestResults, SFEgphTestResults
+
+Author: Piotr Majer, Piedad Castro
+
+Submitted: Thu, July 28 2016 by Piedad Castro
+
+Input: - d : long memory parameter
+       - series: a univariate time series of length N
+       - m : highest frequency, an integer lower than N/2

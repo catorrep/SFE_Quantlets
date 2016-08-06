@@ -9,7 +9,7 @@ Keywords: exchange-rate, returns, plot, time-series, graphical representation
 
 See also: SFEexratevol
 
-Author: N.N., Piedad Castro
+Author: Maria Osipenko, Piedad Castro
 
 Submitted: Wed, July 27 2016 by Piedad Castro
 
