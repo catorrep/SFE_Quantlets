@@ -1,0 +1,18 @@
+Name of QuantLet: SFE_RVarTestStat
+
+Published in: Statistics of Financial Markets
+
+Description: 'Computes the rescaled variance test statistic.'
+
+Keywords: variance, statistics, test, autocorrelation, function
+
+See also: SFE_ResVarTest
+
+Author: Katharina Sevecke
+
+Submitted: Mon, October 17 2016 by Piedad Castro
+
+Input:  - z: time series vector
+	- q: truncation lag
+
+Output: - v_s: rescaled variance test statistic

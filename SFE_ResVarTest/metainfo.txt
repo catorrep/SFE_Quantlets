@@ -1,0 +1,27 @@
+Name of QuantLet: SFE_ResVarTest
+
+Published in: Statistics of Financial Markets
+
+Description: 'Computes the rescaled variance test statistic for the absolute 
+              and squared log returns of the FTSE 100 and daily prices for 
+	      Bayer, Siemens and Volkswagen. This is done for the truncation 
+              lags 5, 10, 32, 40 and 110.
+
+Keywords: variance, statistics, test, autocorrelation, function
+
+See also: SFE_RVarTestStat
+
+Author: Katharina Sevecke, Piedad Castro
+
+Submitted: Mon, October 17 2016 by Piedad Castro
+
+Datafile: 2004-2014_dax_ftse.csv
+
+Input: 'The datafile contains daily price data from 07.05.2004 to 
+07.05.2014 for selected companies which are part of DAX30 and FTSE100 as 
+well as the corresponding index data. This code makes only use FTSE100 
+and of the daily prices for Bayer, Siemens and Volkswagen.'
+
+Output:  'Two tables of size 5x4. The tables testAbs and testSqr contain the 
+         estimations of the rescaled variance test for the absolute and squared 
+         log returns respectively.'

@@ -36,7 +36,7 @@ plot(Index_Rate, data.USDEUR)
     set(gca,'XTickLabels', Years)
 
 %% Plot returns USD/EUR
-subplot(2,1,2) 
+subplot(2, 1, 2) 
 plot(Index_Rtrn, returns)
   title('FX Returns USD/EUR')
     axis([0  Index_Rtrn(end) min(returns) max(returns)])
