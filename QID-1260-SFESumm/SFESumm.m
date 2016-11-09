@@ -7,7 +7,7 @@ close all
 %cd('C:/...')
 
 %% data import
-formatSpec = '%{yyyy-MM-dd}D%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f'
+formatSpec = '%{yyyy-MM-dd}D%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f';
 DAX        = readtable('2004-2014_dax_ftse.csv','Delimiter',',', 'Format',formatSpec);
 
 %% firt business day of each month
