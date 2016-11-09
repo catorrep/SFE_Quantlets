@@ -4,7 +4,6 @@ graphics.off()
 
 # set working directory
 # setwd("C:/...")
-setwd("D:/Trabajo HU")
 
 # install and load packages
 libraries = c("data.table", "fGarch", "copula")
