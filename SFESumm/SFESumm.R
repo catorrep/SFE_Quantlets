@@ -4,7 +4,6 @@ graphics.off()
 
 # set working directory
 # setwd("C:/...")
-setwd("Z:/SFE_Quantlets/SFESumm")
 
 # install and load packages
 libraries = c("data.table", "dplyr", "moments")

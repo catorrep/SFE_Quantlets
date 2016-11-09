@@ -50,7 +50,7 @@ Title = ['DAX monthly log-returns '...
           num2str(monthlyDAX.Year(end), '%02i')];
       
 %% plot of the DAX monthly log-returns
-set(gcf,'color','w')
+set(gcf,'color','w')  % set background color to white
 plot(monthlyDAX.Date(2:end), returns, 'Color', 'b')
 xlim = get(gca,'xlim');  %Get x range 
 hold on
