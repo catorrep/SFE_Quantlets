@@ -8,7 +8,7 @@ Description: 'plots the DAX daily log-returns from 10.05.2004 to 07.05.2014
 
 Keywords: log-returns, density, normal, time-series, plot
 
-Author: N.N. and Piedad Castro
+Author: Derrick Kanngiesser and Piedad Castro
 
 Submitted: Fri, July 01 2016 by Piedad Castro
 

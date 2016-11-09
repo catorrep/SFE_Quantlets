@@ -2,7 +2,6 @@
 rm(list = ls(all = TRUE))
 graphics.off()
 
-
 # set parameters for the simulation
 Tobs = 360
 alpha = 5

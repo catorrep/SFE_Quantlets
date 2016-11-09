@@ -6,3 +6,11 @@ SFE5dim: It was in ready, but not with the new dataset
 
 SFEresDens: New in github!
 
+SFEstaticCop: New in github!
+
+SFE_DAXlogreturns: It was in ready, but not with the new dataset
+                   I did matlab version!
+
+SFEsimCIR: R version is in Ready. I made some little changes. 
+           I did matlab version!
+			

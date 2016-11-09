@@ -12,10 +12,10 @@ sigma = 0.2;
 dt = 1/Tobs;
 
 % initial value of X (X_0):
-X(1) = mu
+X(1) = mu;
 
 % set a seed if you want this simmulation to be reproducible
-%rng(123); 
+% rng(123); 
 
 %% simulates a mean reverting square root process around mu
 for i = 1:Tobs

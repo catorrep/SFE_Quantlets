@@ -7,11 +7,11 @@ close all
 %cd('C:/...')
 
 %% data import
-formatSpec = '%{yyyy-MM-dd}D%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f'
+formatSpec = '%{yyyy-MM-dd}D%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f';
 dataset    = readtable('2004-2014_dax_ftse.csv','Delimiter',',', 'Format',formatSpec);
 
 %% DAX log-returns
-X = diff(log(dataset{:, 'DAX30'}))
+X = diff(log(dataset{:, 'DAX30'}));
 
 %% limits for the y-axis in the plot
 yLimUp = max(abs([min(X) max(X)]) - 0);
@@ -27,7 +27,7 @@ where_put   = [true; (diff(date_X_Year) == 1)];
 Index = 1:size(X, 1);
 start = Index(date_X == '2010-05-10');
 End   = Index(end);
-X_lastfour = X(start:End)
+X_lastfour = X(start:End);
 
 %% these objects will be later required to plot the density
 mu_X      = mean(X_lastfour);
@@ -44,6 +44,7 @@ end
 %% plot of the DAX log-returns with the normal density for the observations 
 % of the last four years available
 plot(Index, X)
+set(gcf,'color','w') % set the background color to white
 hold on
 line([start, start], yLims, 'Color','k','LineWidth', 2)
 line([End, End], yLims,'Color','k','LineWidth',2)
@@ -57,9 +58,8 @@ i = a;
 while i<b 
   to   = End + ((sqrt(2*pi*sigma2_X))^(-1)*exp(-(i - mu_X)^2/(2*sigma2_X)))*10;
   line([End, to], [i, i], 'Color', 'r', 'Linewidth', 2, 'LineStyle', '-')
-  i = i + ((b - a) / 100)
+  i = i + ((b - a) / 100);
 end
-
 
 %% names of the axes
 ylim(yLims)

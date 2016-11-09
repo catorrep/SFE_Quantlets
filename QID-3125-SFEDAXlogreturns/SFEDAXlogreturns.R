@@ -4,7 +4,6 @@ graphics.off()
 
 # set working directory
 # setwd("C:/...")
-setwd("D:/Trabajo HU")
 
 # install and load packages
 libraries = c("data.table", "tseries")
@@ -35,7 +34,6 @@ start      = which(date.X == "2010-05-10")
 end        = length(X) 
 X.lastfour = X[start:end]
 
-
 # these objects will be later required to plot the density
 mu.X      = mean(X.lastfour)
 sigma2.X  = var(X.lastfour)
@@ -58,7 +56,6 @@ lines(c(end, end), yLims, col = 'black', lwd = 2)
 # the density is here mulplied by 10 because otherwise the scale of the plot 
 # would not alloud us to see it
 lines(end + density(ndata, mu.X, sigma2.X)*10, ndata, col='red3', lwd=2.5) 
-
 lines(c(start, end), c(mu.X, mu.X), col='black', lwd=2, lty='dashed')
 
 # fill the area betwenn the area under the density curve between (mu - sigma) and (mu + sigma)
