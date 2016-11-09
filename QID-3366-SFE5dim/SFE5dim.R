@@ -4,7 +4,6 @@ graphics.off()
 
 # set working directory
 # setwd("C:/...")
-setwd("D:/Trabajo HU")
 
 # load libraries
 # install and load packages
