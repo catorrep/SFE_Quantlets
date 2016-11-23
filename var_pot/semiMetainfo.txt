@@ -1,0 +1,29 @@
+
+---------------------------------------------------------------------
+Book:         SFE
+---------------------------------------------------------------------
+Quantlet:     var_pot
+---------------------------------------------------------------------
+Description:  var_pot provides Value at Risk estimates computed with
+              Peaks Over Treshold model with generalized Pareto
+              distribution.
+---------------------------------------------------------------------
+Usage:        [var,ksi,beta,u]=var_pot(y,h,p,q);
+---------------------------------------------------------------------
+Inputs:       y - vector of returns
+              p - quantile for at which Value at Risk should be estimated
+              h - size of the window
+              q - scalar, e.g. 0.1
+---------------------------------------------------------------------
+Output:       ksi, beta - parameters from POT model
+              var - VaR estimates at 0.95 quantile
+---------------------------------------------------------------------
+Result:       
+---------------------------------------------------------------------
+Example:      -
+---------------------------------------------------------------------
+Reference:    McNeil, A. (1999) Extreme Value Theory for Risk Managers
+---------------------------------------------------------------------
+Author:       Barbara Choros, 14.10.2007
+              Edit: Awdesch Melzer 20131126
+---------------------------------------------------------------------
