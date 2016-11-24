@@ -28,6 +28,11 @@ Obs     = length(x)
 
 # function ----
 var_pot = function(y,h,p,q){
+  # Inputs:       
+  # y - vector of returns
+  # p - quantile for at which Value at Risk should be estimated
+  # h - size of the window
+  # q - scalar, e.g. 0.1
   N  = floor(h*q)
   ys = sort(y,decreasing = TRUE)
   u  = ys[N+1]
@@ -42,45 +47,20 @@ var_pot = function(y,h,p,q){
 # Value at Risk ----
 # preallocation
 results = data.frame(var=rep(NaN,Obs-h), ksi=rep(NaN,Obs-h),
-           beta=rep(NaN,Obs-h), u=rep(NaN,Obs-h) )
+                     beta=rep(NaN,Obs-h), u=rep(NaN,Obs-h))
 
 for(i in 1:(Obs-h)){
   y = minus_x[i:(i+h-1)]
   results[i,] = var_pot(y,h,p,q)
 }
 
-# number of exceedances fo Value at Risk, p ----
-v = -results$var
-L = x
-
-# preallocation
-outlier   = rep(NaN,Obs-h)
-exceedVaR = outlier
-
-for(j in 1:(Obs-h)){
-  exceedVaR[j] = (L[j+h]<v[j])
-  if(exceedVaR[j]>0) 
-    outlier[j] = L[j+h]
-}
-
-p       = sum(exceedVaR)/(Obs-h)
-K       = which(is.finite(outlier))
-outlier = outlier[K]
-
-date_outlier = Data$Date[(h+2):length(Data$Date)]
-date_outlier = date_outlier[K]
-
-# plot ----
+# Plot the shape, scale and treshold parameter.
+ylim = c(min(min(results[, -1]))-1, max(max(results[, -1]))+1)
 windows()
-plot(Data$Date[(h+2):length(Data$Date)],L[(h+1):length(L)], xlab = "", 
-     ylab = "", col = "blue", pch = 18)
-points(date_outlier, outlier, pch = 18, col = "magenta")
-points(Data$Date[(h+2):length(Data$Date)], v, col= "red", lwd = 5, type = "l")
-yplus = K * 0 + min(L[(h + 1):length(L)]) - 2
-points(date_outlier, yplus, pch = 3, col = "dark green")
-legend("topleft", c("Profit/Loss", "VaR", "Exceedances"), pch = c(18, NA, 18), 
-       lwd = c(NA, 5, NA), col = c("blue", "red", "magenta"))
-title("Peaks Over Threshold Model")
-
-# Print the exceedances ratio
-print(paste("Exceedances ratio:", "", p))
+plot(Data$Date[(h+2):length(Data$Date)],results$beta, xlab = "", 
+     ylab = "", col = "blue", type = "l", lwd = 2, ylim = ylim)
+lines(Data$Date[(h+2):length(Data$Date)],results$ksi, col = "red", lwd = 2)
+lines(Data$Date[(h+2):length(Data$Date)],results$u, col = "magenta", lwd = 2)
+legend("topleft", c("Scale Parameter", "Shape Parameter", "Threshold"), 
+       lwd = c(2, 2, 2), col = c("blue", "red", "magenta"))
+title("Parameters in Peaks Over Threshold Model")

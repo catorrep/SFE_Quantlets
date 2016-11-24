@@ -1,9 +1,9 @@
 %% clear all variables and console 
-clear all;
-clc;
+clear all
+clc
 
 %% close windows
-close all;
+close all
 
 %% data import
 formatSpec = '%{yyyy-MM-dd}D%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f';
@@ -26,12 +26,11 @@ beta = var;
 u    = var;
 
 for i=1:(Obs-h)
-    % i = 1
     y = minus_x(i:(i+h-1));
     [var(i),ksi(i),beta(i),u(i)] = var_pot(y,h,p,q);
 end
 
-%% number of exceedances fo Value at Risk, p
+%% number of exceedances for Value at Risk, p
 v = -var;
 L = x;
 
