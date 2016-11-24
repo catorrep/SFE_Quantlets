@@ -5,7 +5,9 @@ function [var,ksi,beta,u] = var_pot(y,h,p,q)
     z  = y(y>u)-u;
     
     params = gpfit(z);
-    ksi    = params(1);
-    beta   = params(2);
-    var    = u + beta/ksi*((h/N*(1-p))^(-ksi)-1);
+    warning off    
+    
+    ksi  = params(1);
+    beta = params(2);
+    var  = u + beta/ksi*((h/N*(1-p))^(-ksi)-1);
 end

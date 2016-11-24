@@ -1,9 +1,9 @@
 %% clear all variables and console 
-clear all;
-clc;
+clear
+clc
 
 %% close windows
-close all;
+close all
 
 %% data import
 formatSpec = '%{yyyy-MM-dd}D%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f';
